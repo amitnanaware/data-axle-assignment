@@ -1,0 +1,10 @@
+{% extends "parking_app/index.html" %}
+{% load crispy_forms_tags %}
+{% block start %}
+
+<h2>Reservation Confirmation</h2>
+<p>Parking Spot: {{ parking_spot.name }}</p>
+<p>Hours: {{ hours }}</p>
+<p>Price: {{ price }}</p>
+
+{% endblock start %}

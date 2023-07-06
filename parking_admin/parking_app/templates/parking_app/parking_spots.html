@@ -1,0 +1,48 @@
+{% extends "parking_app/index.html" %}
+{% load crispy_forms_tags %}
+{% block start %}
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #ccc;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+</style>
+
+<table>
+<table>
+    <thead>
+        <tr>
+            <th>Address</th>
+            <th>Location</th>
+            <th>Price per Hour</th>
+            <th>Availability</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for spot in parking_spots %}
+        <tr>
+            <td>{{ spot.address }}</td>
+            <td>{{ spot.location }}</td>
+            <td>{{ spot.price_per_hour }}</td>
+            <td>{% if spot.availability %}Available{% else %}Not Available{% endif %}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock start %}

@@ -1,0 +1,13 @@
+{% extends "parking_app/index.html" %}
+{% load crispy_forms_tags %}
+{% block start %}
+
+<form method="post" action="{% url 'add_parking_spot' %} " style="border: 1px solid black; margin: 4%; padding:10%; border-radius:1%;">
+    {% csrf_token %}
+    <fieldset class="form-group">
+      {{ form|crispy}}
+    </fieldset>
+    <button type="submit">Add Parking Spot</button>
+</form>
+
+{% endblock start %}

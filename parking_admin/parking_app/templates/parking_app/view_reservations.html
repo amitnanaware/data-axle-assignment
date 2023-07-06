@@ -1,0 +1,23 @@
+{% extends "parking_app/index.html" %}
+{% load crispy_forms_tags %}
+{% block start %}
+
+<h2>View Reservations</h2>
+
+{% if reservations %}
+    <ul>
+    {% for reservation in reservations %}
+        <li>
+            <p>Reservation ID: {{ reservation.id }}</p>
+            <p>Parking Spot: {{ reservation.parking_spot.name }}</p>
+            <p>Hours: {{ reservation.hours }}</p>
+            <p>Price: {{ reservation.calculate_price }}</p>
+            <p>Reservation Date: {{ reservation.reservation_date }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No reservations found.</p>
+{% endif %}
+
+{% endblock start %}

@@ -1,0 +1,16 @@
+{% extends "parking_app/index.html" %}
+{% load crispy_forms_tags %}
+{% block start %}
+
+{% if nearby_parking_spots %}
+    <h2>Nearby Parking Spots:</h2>
+    <ul>
+        {% for spot in nearby_parking_spots %}
+        <li>{{ spot.address }} - Distance: {{ spot.distance.m }} meters</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h2>No nearby parking spots found.</h2>
+{% endif %}
+
+{% endblock start %}
